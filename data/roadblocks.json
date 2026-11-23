@@ -1,0 +1,750 @@
+{
+ "meta": {
+  "scope": "Badges 1-9 (Volt, Canopy, Cocoon, Omen, Blight, Rime, Standard, Millennium, Eclipse): story from the intro to Luna",
+  "game_version": "19.5.43",
+  "generated_by": "worlds/pokemon_reborn/tools: prep_data.sh, run_play.py, missables.py, deps.py --bag, build_checks.py, export_apworld.py",
+  "location_id": "map * 100000 + event * 100 + event_index",
+  "item_id": "Reborn item :ID (Scripts/Reborn/itemtext.rb); badge n = 10000 + n"
+ },
+ "options": [
+  {
+   "name": "story_gates",
+   "values": [
+    "leader",
+    "badge",
+    "both"
+   ],
+   "default": "leader",
+   "note": "leader = beat the Gym Leader, badge = own the AP badge item, both = both. Default chosen by the user on 2026-10-21: leader."
+  }
+ ],
+ "field_moves": {
+  "Cut": {
+   "rule": {
+    "all": [
+     {
+      "item": "TMX1 Cut"
+     },
+     {
+      "badges": 1
+     }
+    ]
+   }
+  },
+  "Rock Smash": {
+   "rule": {
+    "all": [
+     {
+      "item": "TMX7 Rock Smash"
+     },
+     {
+      "badges": 3
+     }
+    ]
+   }
+  },
+  "Flash": {
+   "rule": {
+    "all": [
+     {
+      "item": "TMX8 Flash"
+     },
+     {
+      "badges": 4
+     }
+    ]
+   },
+   "note": "Visual only in Reborn (Field.rb pbFlash): checks on dark maps use {\"soft\": Flash}, in logic only with Flash, shown as a sequence break by a tracker without it."
+  },
+  "Strength": {
+   "rule": {
+    "all": [
+     {
+      "item": "TMX4 Strength"
+     },
+     {
+      "badges": 5
+     }
+    ]
+   }
+  }
+ },
+ "dark_maps": [
+  12,
+  184,
+  185,
+  186,
+  214,
+  215,
+  216,
+  217,
+  218,
+  219,
+  220,
+  221,
+  222,
+  229,
+  257,
+  258,
+  259,
+  260,
+  300,
+  301,
+  669,
+  743,
+  748,
+  767,
+  775
+ ],
+ "regions": [
+  {
+   "name": "E1",
+   "entrance_from": "Menu",
+   "rule": null
+  },
+  {
+   "name": "E2a",
+   "entrance_from": "E1",
+   "rule": {
+    "option": "story_gates",
+    "cases": {
+     "leader": {
+      "event": "Defeat Julia"
+     },
+     "badge": {
+      "item": "Volt Badge"
+     },
+     "both": {
+      "all": [
+       {
+        "event": "Defeat Julia"
+       },
+       {
+        "item": "Volt Badge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "E2b",
+   "entrance_from": "E2a",
+   "rule": {
+    "field_move": "Cut"
+   },
+   "roadblock": "Cut tree at the Obsidia Park entrance (E2 Story 13 -> 14 is set inside the park; the story needs the Cain fight first, always doable in E2a)"
+  },
+  {
+   "name": "E3",
+   "entrance_from": "E2b",
+   "rule": {
+    "option": "story_gates",
+    "cases": {
+     "leader": {
+      "event": "Defeat Florinia"
+     },
+     "badge": {
+      "item": "Canopy Badge"
+     },
+     "both": {
+      "all": [
+       {
+        "event": "Defeat Florinia"
+       },
+       {
+        "item": "Canopy Badge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "E4",
+   "entrance_from": "E3",
+   "rule": {
+    "event": "Defeat Corey"
+   }
+  },
+  {
+   "name": "E5a",
+   "entrance_from": "E4",
+   "rule": {
+    "option": "story_gates",
+    "cases": {
+     "leader": {
+      "event": "Defeat Shelly"
+     },
+     "badge": {
+      "item": "Cocoon Badge"
+     },
+     "both": {
+      "all": [
+       {
+        "event": "Defeat Shelly"
+       },
+       {
+        "item": "Cocoon Badge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "E5b",
+   "entrance_from": "E5a",
+   "rule": {
+    "field_move": "Rock Smash"
+   },
+   "roadblock": "Rock in the Underground Railnet (map 196): E5 Story 24 -> 28 is set past it (the story needs Anna's scene at Lapis first, always doable in E5a)"
+  },
+  {
+   "name": "E6a",
+   "entrance_from": "E5b",
+   "rule": {
+    "option": "story_gates",
+    "cases": {
+     "leader": {
+      "event": "Defeat Shade"
+     },
+     "badge": {
+      "item": "Omen Badge"
+     },
+     "both": {
+      "all": [
+       {
+        "event": "Defeat Shade"
+       },
+       {
+        "item": "Omen Badge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "E6b",
+   "entrance_from": "E6a",
+   "rule": {
+    "item": "Harbor Key"
+   },
+   "roadblock": "Coral Ward shutter (map 97 ev5 -> S162 Coral Shutter): without the Harbor Key the E6 Story stops at 17"
+  },
+  {
+   "name": "E7",
+   "entrance_from": "E6b",
+   "rule": {
+    "option": "story_gates",
+    "cases": {
+     "leader": {
+      "event": "Defeat Aya"
+     },
+     "badge": {
+      "item": "Blight Badge"
+     },
+     "both": {
+      "all": [
+       {
+        "event": "Defeat Aya"
+       },
+       {
+        "item": "Blight Badge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "E8",
+   "entrance_from": "E7",
+   "rule": {
+    "field_move": "Strength"
+   },
+   "roadblock": "Boulder in the Underground Railnet (map 225): the story goes on past it, after Cal gives TMX4 at South Obsidia Ward (always doable in E7)"
+  },
+  {
+   "name": "E9",
+   "entrance_from": "E8",
+   "rule": {
+    "option": "story_gates",
+    "cases": {
+     "leader": {
+      "event": "Defeat Serra"
+     },
+     "badge": {
+      "item": "Rime Badge"
+     },
+     "both": {
+      "all": [
+       {
+        "event": "Defeat Serra"
+       },
+       {
+        "item": "Rime Badge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "E10",
+   "entrance_from": "E9",
+   "rule": {
+    "option": "story_gates",
+    "cases": {
+     "leader": {
+      "event": "Defeat Noel"
+     },
+     "badge": {
+      "item": "Standard Badge"
+     },
+     "both": {
+      "all": [
+       {
+        "event": "Defeat Noel"
+       },
+       {
+        "item": "Standard Badge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "E11",
+   "entrance_from": "E10",
+   "rule": {
+    "option": "story_gates",
+    "cases": {
+     "leader": {
+      "event": "Defeat Radomus"
+     },
+     "badge": {
+      "item": "Millennium Badge"
+     },
+     "both": {
+      "all": [
+       {
+        "event": "Defeat Radomus"
+       },
+       {
+        "item": "Millennium Badge"
+       }
+      ]
+     }
+    }
+   }
+  }
+ ],
+ "events": [
+  {
+   "name": "Defeat Julia",
+   "region": "E1",
+   "vanilla_reward": "Volt Badge",
+   "game_flags": [
+    "S62 First Badge",
+    "badge 0"
+   ],
+   "note": "Story continues from S62 (map event sets E2 Story = 1)."
+  },
+  {
+   "name": "Defeat Cain",
+   "region": "E2a",
+   "game_flags": [
+    "E2 Story = 13"
+   ],
+   "note": "Coral Ward, map 97 ev10; Amaria/Cain scene that gives TMX1 in vanilla."
+  },
+  {
+   "name": "Defeat Florinia",
+   "region": "E2b",
+   "vanilla_reward": "Canopy Badge",
+   "game_flags": [
+    "S64 Second Badge",
+    "badge 1"
+   ]
+  },
+  {
+   "name": "Defeat Corey",
+   "region": "E3",
+   "game_flags": [
+    "S107 Third Gym Done"
+   ],
+   "note": "No badge in Reborn."
+  },
+  {
+   "name": "Defeat Shelly",
+   "region": "E4",
+   "vanilla_reward": "Cocoon Badge",
+   "game_flags": [
+    "S134 Fourth Gym Done",
+    "badge 2"
+   ]
+  },
+  {
+   "name": "Reach the Railnet rock",
+   "region": "E5a",
+   "game_flags": [
+    "E5 Story = 24"
+   ],
+   "note": "Lapis Ward map 80 ev39 (Anna) sets E5 Story = 24."
+  },
+  {
+   "name": "Defeat Shade",
+   "region": "E5b",
+   "vanilla_reward": "Omen Badge",
+   "game_flags": [
+    "S139 Fifth Badge",
+    "badge 3"
+   ]
+  },
+  {
+   "name": "Defeat Aya",
+   "region": "E6b",
+   "vanilla_reward": "Blight Badge",
+   "game_flags": [
+    "S179 Seventh Badge",
+    "badge 4"
+   ],
+   "note": "Wasteland Hideout, map 224 ev2."
+  },
+  {
+   "name": "Defeat Serra",
+   "region": "E8",
+   "vanilla_reward": "Rime Badge",
+   "game_flags": [
+    "S207 Eighth Badge",
+    "badge 5"
+   ],
+   "note": "Voclain Estate, map 506 ev55."
+  },
+  {
+   "name": "Defeat Noel",
+   "region": "E9",
+   "vanilla_reward": "Standard Badge",
+   "game_flags": [
+    "S254 Ninth Badge",
+    "badge 6"
+   ],
+   "note": "Tanzan Cove, map 232 ev12."
+  },
+  {
+   "name": "Defeat Radomus",
+   "region": "E10",
+   "vanilla_reward": "Millennium Badge",
+   "game_flags": [
+    "S283 Tenth Badge",
+    "badge 7"
+   ],
+   "note": "Vanhanen Castle, map 315 ev35."
+  },
+  {
+   "name": "Defeat Luna",
+   "region": "E11",
+   "vanilla_reward": "Eclipse Badge",
+   "game_flags": [
+    "S422 11th Badge",
+    "badge 8"
+   ],
+   "rule": {
+    "item": "Progressive Crystal Key",
+    "count": 4
+   },
+   "note": "Iolia Valley, map 350 ev2, past the four crystals. Goal of the scope."
+  }
+ ],
+ "goal": "Defeat Luna",
+ "stages": [
+  {
+   "id": "E1",
+   "label": "Episode 1 until Julia (Volt Badge)",
+   "last_wave": 11
+  },
+  {
+   "id": "E2a",
+   "label": "Episode 2 until the Cut tree at the Obsidia Park entrance",
+   "last_wave": 22
+  },
+  {
+   "id": "E2b",
+   "label": "Episode 2 with Cut until Florinia (Canopy Badge)",
+   "last_wave": 29
+  },
+  {
+   "id": "E3",
+   "label": "Episode 3 until Corey (no badge)",
+   "last_wave": 38
+  },
+  {
+   "id": "E4",
+   "label": "Episode 4 until Shelly (Cocoon Badge)",
+   "last_wave": 48
+  },
+  {
+   "id": "E5a",
+   "label": "Episode 5 until the Rock Smash roadblock (E5 Story = 24)",
+   "last_wave": 57
+  },
+  {
+   "id": "E5b",
+   "label": "Episode 5 with Rock Smash until Shade (Omen Badge)",
+   "last_wave": 60
+  },
+  {
+   "id": "E6a",
+   "label": "Episode 6 (Blacksteam Factory) until the Harbor Key",
+   "last_wave": 71
+  },
+  {
+   "id": "E6b",
+   "label": "Episodes 6-7 with the Harbor Key (Coral Ward shutter, S162 Coral Shutter) until Aya (Blight Badge)",
+   "last_wave": 87
+  },
+  {
+   "id": "E7",
+   "label": "Episode 7 until Cal gives TMX4 Strength at South Obsidia Ward",
+   "last_wave": 89
+  },
+  {
+   "id": "E8",
+   "label": "Episode 8 with Strength (Underground Railnet boulder) until Serra (Rime Badge)",
+   "last_wave": 103
+  },
+  {
+   "id": "E9",
+   "label": "Episode 9 until Noel (Standard Badge)",
+   "last_wave": 120
+  },
+  {
+   "id": "E10",
+   "label": "Episode 10 until Radomus (Millennium Badge)",
+   "last_wave": 133
+  },
+  {
+   "id": "E11",
+   "label": "Episode 11 until Luna (Eclipse Badge)",
+   "last_wave": 169
+  }
+ ],
+ "item_deps": {
+  "House Key": {
+   "symbol": "APARTMENTKEY",
+   "checks": [
+    "115:98:0:27"
+   ]
+  },
+  "Archive Key": {
+   "symbol": "ARCHIVEKEY",
+   "checks": [
+    "191:16:0:0"
+   ]
+  },
+  "Bike Voucher": {
+   "symbol": "BIKEVOUCHER",
+   "checks": [
+    "167:1:0:13"
+   ]
+  },
+  "Blue Shard": {
+   "symbol": "BLUESHARD",
+   "checks": [
+    "324:26:3:71"
+   ]
+  },
+  "Progressive Crystal Key 1": {
+   "symbol": "CRYSTALPLUG1",
+   "checks": [
+    "153:131:0:0",
+    "153:150:0:0",
+    "230:40:0:0",
+    "274:2:0:0",
+    "276:7:0:0",
+    "280:17:0:0",
+    "280:18:0:0",
+    "333:57:0:0",
+    "333:58:0:0",
+    "333:60:0:0",
+    "333:61:0:0",
+    "333:65:2:2",
+    "333:68:2:2",
+    "333:78:2:2",
+    "334:11:0:0",
+    "334:12:0:0",
+    "334:13:0:0",
+    "334:8:2:2",
+    "335:140:1:2",
+    "335:146:2:2",
+    "335:157:0:1",
+    "335:158:0:1",
+    "335:160:0:0",
+    "335:51:0:0",
+    "335:52:0:0",
+    "335:53:0:0",
+    "335:54:0:0",
+    "335:55:0:0",
+    "335:56:0:0",
+    "335:94:0:0",
+    "335:95:0:0",
+    "335:98:0:0",
+    "340:5:0:0",
+    "343:3:0:1",
+    "350:2:0:42"
+   ]
+  },
+  "Progressive Crystal Key 2": {
+   "symbol": "CRYSTALPLUG2",
+   "checks": [
+    "153:131:0:0",
+    "153:150:0:0",
+    "230:40:0:0",
+    "274:2:0:0",
+    "276:7:0:0",
+    "280:17:0:0",
+    "280:18:0:0",
+    "333:60:0:0",
+    "333:61:0:0",
+    "333:65:2:2",
+    "333:68:2:2",
+    "333:78:2:2",
+    "334:12:0:0",
+    "334:13:0:0",
+    "334:8:2:2",
+    "335:140:1:2",
+    "335:146:2:2",
+    "335:158:0:1",
+    "335:160:0:0",
+    "335:52:0:0",
+    "335:54:0:0",
+    "335:55:0:0",
+    "335:56:0:0",
+    "335:94:0:0",
+    "335:95:0:0",
+    "335:98:0:0",
+    "340:5:0:0",
+    "343:3:0:1",
+    "350:2:0:42"
+   ]
+  },
+  "Progressive Crystal Key 3": {
+   "symbol": "CRYSTALPLUG3",
+   "checks": [
+    "333:60:0:0",
+    "333:61:0:0",
+    "333:78:2:2",
+    "334:12:0:0",
+    "334:13:0:0",
+    "334:8:2:2",
+    "335:140:1:2",
+    "335:146:2:2",
+    "335:160:0:0",
+    "335:52:0:0",
+    "335:55:0:0",
+    "335:56:0:0",
+    "335:94:0:0",
+    "335:95:0:0",
+    "335:98:0:0",
+    "340:5:0:0",
+    "343:3:0:1",
+    "350:2:0:42"
+   ]
+  },
+  "Progressive Crystal Key 4": {
+   "symbol": "CRYSTALPLUG4",
+   "checks": [
+    "333:61:0:0",
+    "333:78:2:2",
+    "335:146:2:2",
+    "335:160:0:0",
+    "335:52:0:0",
+    "335:56:0:0",
+    "335:94:0:0",
+    "335:95:0:0",
+    "340:5:0:0",
+    "350:2:0:42"
+   ]
+  },
+  "Dull Key": {
+   "symbol": "DULLKEY",
+   "checks": [
+    "320:17:0:0",
+    "320:7:0:0",
+    "321:32:1:0",
+    "321:79:0:0",
+    "321:80:0:0",
+    "321:81:0:0",
+    "321:82:0:0",
+    "321:83:0:0",
+    "321:84:0:0",
+    "321:88:0:0",
+    "321:89:0:0",
+    "96:6:0:0"
+   ]
+  },
+  "Green Shard": {
+   "symbol": "GREENSHARD",
+   "checks": [
+    "324:26:3:71"
+   ]
+  },
+  "Mining Kit": {
+   "symbol": "MININGKIT",
+   "checks": [
+    "221:4:0:0",
+    "30:21:0:0",
+    "328:2:0:0"
+   ]
+  },
+  "Purple Shard": {
+   "symbol": "PURPLESHARD",
+   "checks": [
+    "324:26:3:71"
+   ]
+  },
+  "Red Shard": {
+   "symbol": "REDSHARD",
+   "checks": [
+    "324:26:3:71"
+   ]
+  },
+  "Warehouse Key": {
+   "symbol": "WAREHOUSEKEY",
+   "checks": [
+    "11:13:2:40",
+    "11:27:1:15",
+    "248:20:0:0",
+    "324:26:3:71"
+   ]
+  },
+  "Yureyu Key": {
+   "symbol": "YUREYUKEY",
+   "checks": [
+    "281:13:0:0",
+    "281:35:0:0"
+   ]
+  }
+ },
+ "progressive": {
+  "Progressive Crystal Key": {
+   "symbol": "CRYSTALKEY",
+   "copies": [
+    "CRYSTALPLUG1",
+    "CRYSTALPLUG2",
+    "CRYSTALPLUG3",
+    "CRYSTALPLUG4"
+   ]
+  }
+ },
+ "consumed": {},
+ "buyable": {
+  "PokéSnax": "Peridot Ward mart, map 57 ev132, E1 ; Department Store 1F, map 112 ev2",
+  "Blue Moon Ice Cream": "vending machines of Spinel Town (map 242 ev13, E8) and the Sweet Kiss Candy Shop (map 256 ev3)",
+  "Oran Berry": "Department Store 2F, map 114 ev2",
+  "Rare Candy": "Pickup (PickupRare, Pokémon level 21-60)"
+ }
+}

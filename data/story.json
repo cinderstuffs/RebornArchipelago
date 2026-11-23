@@ -1,0 +1,31 @@
+{
+ "meta": {
+  "scope": "Badges 1-9 (Volt, Canopy, Cocoon, Omen, Blight, Rime, Standard, Millennium, Eclipse): story from the intro to Luna",
+  "game_version": "19.5.43",
+  "generated_by": "worlds/pokemon_reborn/tools: prep_data.sh, run_play.py, missables.py, deps.py --bag, build_checks.py, export_apworld.py",
+  "location_id": "map * 100000 + event * 100 + event_index",
+  "item_id": "Reborn item :ID (Scripts/Reborn/itemtext.rb); badge n = 10000 + n"
+ },
+ "switches": [
+  2,
+  59,
+  62,
+  63,
+  85,
+  128,
+  139,
+  170,
+  179,
+  207,
+  479
+ ],
+ "variables": [
+  77,
+  91,
+  92,
+  104,
+  107,
+  149,
+  229
+ ]
+}
