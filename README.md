@@ -2,7 +2,7 @@
 
 An [Archipelago](https://github.com/ArchipelagoMW/Archipelago) randomizer for Pokémon Reborn, a Pokémon fangame.
 
-This is currently a prototype, work is still in progress. To this day, only checks up until Luna (9th Gym Leader) have been implemented and tested.
+This is currently a prototype, work is still in progress. For now, only checks up until Luna (9th Gym Leader) have been implemented and tested.
 
 A PopTracker is also available to help. It tracks all maps and items available, while considering logic and roadblocks.
 
@@ -15,13 +15,13 @@ Everything that provides an item becomes a check. This includes:
 
 Considering how big this game is, I highly advise you to play with the PopTracker package and the official Pokémon Reborn wiki open.
 
-To this day, nor wild or trainers' Pokémons are randomized. This is a planned feature, once all of the game's checks are done.
+As of now, neither wild nor trainers' Pokémons are randomized. This is a planned feature, once all of the game's checks are done.
 
 ## What's the goal?
 
 Since the game isn't finished yet, the main goal is to defeat Luna.
 
-While the "actual" goal (once development is done) will be to defeat Lin or Arceus, I will probably keep the Luna one, to offer a much accessible goal.
+While the "actual" goal (once development is done) will be to defeat Lin or Arceus, I will probably keep the Luna one, to offer a more accessible goal.
 
 In the future, you will also be able to choose to beat X champions or collect X badges to adapt your run's length.
 
