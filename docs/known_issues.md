@@ -4,7 +4,7 @@ This list will be updated on every new release. If you found a bug that isn't li
 
 - The apworld has yet to be tested in an actual multiworld with other games. Tests made so far were using a local multiworld with only one instance of Pokémon Reborn.
 
-- The game doesn't detech when the goal is achieved yet.
+- The game doesn't detect when the goal is achieved yet.
 
 - The game is still linear and follows the vanilla storyline; there's no open world feature yet. Read [the story gate guide](story_gate.md) for more information.
 

@@ -1,6 +1,6 @@
 {
  "meta": {
-  "scope": "Badges 1-9 (Volt, Canopy, Cocoon, Omen, Blight, Rime, Standard, Millennium, Eclipse): story from the intro to Luna",
+  "scope": "Badges 1-13 (Volt, Canopy, Cocoon, Omen, Blight, Rime, Standard, Millennium, Eclipse, Strike, Cinder, Gravity, Suspension): story from the intro to Ciel",
   "game_version": "19.5.43",
   "generated_by": "worlds/pokemon_reborn/tools: prep_data.sh, run_play.py, missables.py, deps.py --bag, build_checks.py, export_apworld.py",
   "location_id": "map * 100000 + event * 100 + event_index",
@@ -64,6 +64,42 @@
      },
      {
       "badges": 5
+     }
+    ]
+   }
+  },
+  "Surf": {
+   "rule": {
+    "all": [
+     {
+      "item": "TMX3 Surf"
+     },
+     {
+      "badges": 10
+     }
+    ]
+   }
+  },
+  "Dive": {
+   "rule": {
+    "all": [
+     {
+      "item": "TMX6 Dive"
+     },
+     {
+      "badges": 11
+     }
+    ]
+   }
+  },
+  "Waterfall": {
+   "rule": {
+    "all": [
+     {
+      "item": "TMX5 Waterfall"
+     },
+     {
+      "badges": 12
      }
     ]
    }
@@ -340,6 +376,131 @@
      }
     }
    }
+  },
+  {
+   "name": "E12",
+   "entrance_from": "E11",
+   "rule": {
+    "option": "story_gates",
+    "cases": {
+     "leader": {
+      "event": "Defeat Luna"
+     },
+     "badge": {
+      "item": "Eclipse Badge"
+     },
+     "both": {
+      "all": [
+       {
+        "event": "Defeat Luna"
+       },
+       {
+        "item": "Eclipse Badge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "E13",
+   "entrance_from": "E12",
+   "rule": {
+    "option": "story_gates",
+    "cases": {
+     "leader": {
+      "event": "Defeat Samson"
+     },
+     "badge": {
+      "item": "Strike Badge"
+     },
+     "both": {
+      "all": [
+       {
+        "event": "Defeat Samson"
+       },
+       {
+        "item": "Strike Badge"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "E14",
+   "entrance_from": "E13",
+   "rule": {
+    "all": [
+     {
+      "option": "story_gates",
+      "cases": {
+       "leader": {
+        "event": "Defeat Charlotte"
+       },
+       "badge": {
+        "item": "Cinder Badge"
+       },
+       "both": {
+        "all": [
+         {
+          "event": "Defeat Charlotte"
+         },
+         {
+          "item": "Cinder Badge"
+         }
+        ]
+       }
+      }
+     },
+     {
+      "field_move": "Surf"
+     },
+     {
+      "field_move": "Dive"
+     }
+    ]
+   }
+  },
+  {
+   "name": "E15a",
+   "entrance_from": "E14",
+   "rule": {
+    "all": [
+     {
+      "option": "story_gates",
+      "cases": {
+       "leader": {
+        "event": "Defeat Terra"
+       },
+       "badge": {
+        "item": "Gravity Badge"
+       },
+       "both": {
+        "all": [
+         {
+          "event": "Defeat Terra"
+         },
+         {
+          "item": "Gravity Badge"
+         }
+        ]
+       }
+      }
+     },
+     {
+      "field_move": "Waterfall"
+     }
+    ]
+   }
+  },
+  {
+   "name": "E15b",
+   "entrance_from": "E15a",
+   "rule": {
+    "item": "Beryl Grid Key"
+   },
+   "roadblock": "Beryl Water Grid door of the Jasper Water Grid (475 ev21 page 4, S547 Beryl Locked set by Tania 475 ev37): without the Beryl Grid Key the E15 Story stops at 21"
   }
  ],
  "events": [
@@ -456,80 +617,143 @@
     "item": "Progressive Crystal Key",
     "count": 4
    },
-   "note": "Iolia Valley, map 350 ev2, past the four crystals. Goal of the scope."
+   "note": "Iolia Valley, map 350 ev2, past the four crystals."
+  },
+  {
+   "name": "Defeat Samson",
+   "region": "E12",
+   "vanilla_reward": "Strike Badge",
+   "game_flags": [
+    "S460 12th badge",
+    "badge 9"
+   ],
+   "note": "Big Top, map 356 ev43 page 0."
+  },
+  {
+   "name": "Defeat Charlotte",
+   "region": "E13",
+   "vanilla_reward": "Cinder Badge",
+   "game_flags": [
+    "S499 13th Badge",
+    "badge 10"
+   ],
+   "note": "Calcenon Gym, map 419 ev237."
+  },
+  {
+   "name": "Defeat Terra",
+   "region": "E14",
+   "vanilla_reward": "Gravity Badge",
+   "game_flags": [
+    "S520 14th Badge",
+    "badge 11"
+   ],
+   "note": "Glitch World, Champion Room map 456 ev3."
+  },
+  {
+   "name": "Defeat Ciel",
+   "region": "E15b",
+   "vanilla_reward": "Suspension Badge",
+   "game_flags": [
+    "S581 15th badge",
+    "badge 12"
+   ],
+   "note": "Big Top, map 356 ev43 page 2."
   }
  ],
- "goal": "Defeat Luna",
+ "goal": {
+  "defeat_luna": "Defeat Luna",
+  "defeat_ciel": "Defeat Ciel"
+ },
  "stages": [
   {
    "id": "E1",
    "label": "Episode 1 until Julia (Volt Badge)",
-   "last_wave": 11
+   "last_wave": 9
   },
   {
    "id": "E2a",
    "label": "Episode 2 until the Cut tree at the Obsidia Park entrance",
-   "last_wave": 22
+   "last_wave": 20
   },
   {
    "id": "E2b",
    "label": "Episode 2 with Cut until Florinia (Canopy Badge)",
-   "last_wave": 29
+   "last_wave": 28
   },
   {
    "id": "E3",
    "label": "Episode 3 until Corey (no badge)",
-   "last_wave": 38
+   "last_wave": 37
   },
   {
    "id": "E4",
    "label": "Episode 4 until Shelly (Cocoon Badge)",
-   "last_wave": 48
+   "last_wave": 46
   },
   {
    "id": "E5a",
    "label": "Episode 5 until the Rock Smash roadblock (E5 Story = 24)",
-   "last_wave": 57
+   "last_wave": 52
   },
   {
    "id": "E5b",
    "label": "Episode 5 with Rock Smash until Shade (Omen Badge)",
-   "last_wave": 60
+   "last_wave": 54
   },
   {
    "id": "E6a",
    "label": "Episode 6 (Blacksteam Factory) until the Harbor Key",
-   "last_wave": 71
+   "last_wave": 62
   },
   {
    "id": "E6b",
    "label": "Episodes 6-7 with the Harbor Key (Coral Ward shutter, S162 Coral Shutter) until Aya (Blight Badge)",
-   "last_wave": 87
+   "last_wave": 76
   },
   {
    "id": "E7",
    "label": "Episode 7 until Cal gives TMX4 Strength at South Obsidia Ward",
-   "last_wave": 89
+   "last_wave": 78
   },
   {
    "id": "E8",
    "label": "Episode 8 with Strength (Underground Railnet boulder) until Serra (Rime Badge)",
-   "last_wave": 103
+   "last_wave": 91
   },
   {
    "id": "E9",
    "label": "Episode 9 until Noel (Standard Badge)",
-   "last_wave": 120
+   "last_wave": 105
   },
   {
    "id": "E10",
    "label": "Episode 10 until Radomus (Millennium Badge)",
-   "last_wave": 133
+   "last_wave": 120
   },
   {
    "id": "E11",
    "label": "Episode 11 until Luna (Eclipse Badge)",
-   "last_wave": 169
+   "last_wave": 155
+  },
+  {
+   "id": "E12",
+   "label": "Episode 12 until Samson (Strike Badge)",
+   "last_wave": 168
+  },
+  {
+   "id": "E13",
+   "label": "Episode 13 with Surf until Charlotte (Cinder Badge)",
+   "last_wave": 174
+  },
+  {
+   "id": "E14",
+   "label": "Episode 14 with Dive until Terra (Gravity Badge)",
+   "last_wave": 195
+  },
+  {
+   "id": "E15",
+   "label": "Episode 15 with Waterfall until Ciel (Suspension Badge)",
+   "last_wave": 201
   }
  ],
  "item_deps": {
@@ -569,6 +793,7 @@
     "280:18:0:0",
     "333:57:0:0",
     "333:58:0:0",
+    "333:59:0:0",
     "333:60:0:0",
     "333:61:0:0",
     "333:65:2:2",
@@ -592,7 +817,7 @@
     "335:94:0:0",
     "335:95:0:0",
     "335:98:0:0",
-    "340:5:0:0",
+    "339:2:0:0",
     "343:3:0:1",
     "350:2:0:42"
    ]
@@ -619,14 +844,13 @@
     "335:146:2:2",
     "335:158:0:1",
     "335:160:0:0",
-    "335:52:0:0",
+    "335:161:0:0",
     "335:54:0:0",
     "335:55:0:0",
     "335:56:0:0",
     "335:94:0:0",
-    "335:95:0:0",
     "335:98:0:0",
-    "340:5:0:0",
+    "339:2:0:0",
     "343:3:0:1",
     "350:2:0:42"
    ]
@@ -643,13 +867,11 @@
     "335:140:1:2",
     "335:146:2:2",
     "335:160:0:0",
-    "335:52:0:0",
     "335:55:0:0",
     "335:56:0:0",
     "335:94:0:0",
-    "335:95:0:0",
     "335:98:0:0",
-    "340:5:0:0",
+    "339:2:0:0",
     "343:3:0:1",
     "350:2:0:42"
    ]
@@ -661,12 +883,16 @@
     "333:78:2:2",
     "335:146:2:2",
     "335:160:0:0",
-    "335:52:0:0",
     "335:56:0:0",
     "335:94:0:0",
-    "335:95:0:0",
-    "340:5:0:0",
+    "339:2:0:0",
     "350:2:0:42"
+   ]
+  },
+  "'Rare Candy'": {
+   "symbol": "DRARECANDY",
+   "checks": [
+    "324:43:1:6"
    ]
   },
   "Dull Key": {
@@ -686,10 +912,10 @@
     "96:6:0:0"
    ]
   },
-  "Green Shard": {
-   "symbol": "GREENSHARD",
+  "ID Tag": {
+   "symbol": "IDTAG",
    "checks": [
-    "324:26:3:71"
+    "69:1:0:26"
    ]
   },
   "Mining Kit": {
@@ -697,7 +923,15 @@
    "checks": [
     "221:4:0:0",
     "30:21:0:0",
-    "328:2:0:0"
+    "328:2:0:0",
+    "381:5:0:0"
+   ]
+  },
+  "Powder Vial": {
+   "symbol": "POWDERVIAL",
+   "checks": [
+    "333:59:0:0",
+    "339:2:0:0"
    ]
   },
   "Purple Shard": {
@@ -706,10 +940,17 @@
     "324:26:3:71"
    ]
   },
-  "Red Shard": {
-   "symbol": "REDSHARD",
+  "Silver Card": {
+   "symbol": "SILVERCARD",
    "checks": [
-    "324:26:3:71"
+    "437:3:0:0",
+    "437:5:0:0"
+   ]
+  },
+  "Silver Ring": {
+   "symbol": "SILVERRING",
+   "checks": [
+    "381:1:0:0"
    ]
   },
   "Warehouse Key": {
@@ -745,6 +986,7 @@
   "PokéSnax": "Peridot Ward mart, map 57 ev132, E1 ; Department Store 1F, map 112 ev2",
   "Blue Moon Ice Cream": "vending machines of Spinel Town (map 242 ev13, E8) and the Sweet Kiss Candy Shop (map 256 ev3)",
   "Oran Berry": "Department Store 2F, map 114 ev2",
-  "Rare Candy": "Pickup (PickupRare, Pokémon level 21-60)"
+  "Rare Candy": "Pickup (PickupRare, Pokémon level 21-60)",
+  "Blast Powder": "7th Street mart, map 324 ev32 (with a gang, E11) ; Beryl Library 548 ev11 ; Medicine Market 611 ev2"
  }
 }

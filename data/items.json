@@ -1,6 +1,6 @@
 {
  "meta": {
-  "scope": "Badges 1-9 (Volt, Canopy, Cocoon, Omen, Blight, Rime, Standard, Millennium, Eclipse): story from the intro to Luna",
+  "scope": "Badges 1-13 (Volt, Canopy, Cocoon, Omen, Blight, Rime, Standard, Millennium, Eclipse, Strike, Cinder, Gravity, Suspension): story from the intro to Ciel",
   "game_version": "19.5.43",
   "generated_by": "worlds/pokemon_reborn/tools: prep_data.sh, run_play.py, missables.py, deps.py --bag, build_checks.py, export_apworld.py",
   "location_id": "map * 100000 + event * 100 + event_index",
@@ -10,12 +10,28 @@
   "'Rare Candy'": {
    "id": 599,
    "symbol": "DRARECANDY",
-   "classification": "useful"
+   "classification": "progression"
   },
   "Ability Capsule": {
    "id": 581,
    "symbol": "ABILITYCAPSULE",
    "classification": "filler"
+  },
+  "Abomasite": {
+   "id": 537,
+   "symbol": "ABOMASITE",
+   "classification": "useful"
+  },
+  "Adamant Mint": {
+   "id": 825,
+   "symbol": "ADAMANTMINT",
+   "classification": "filler",
+   "quantity": 5
+  },
+  "Aerodactylite": {
+   "id": 539,
+   "symbol": "AERODACTYLITE",
+   "classification": "useful"
   },
   "Amethyst Pendant": {
    "id": 534,
@@ -53,6 +69,31 @@
    "symbol": "AWAKENING",
    "classification": "filler"
   },
+  "Banettite": {
+   "id": 544,
+   "symbol": "BANETTITE",
+   "classification": "useful"
+  },
+  "Battle Pass- Gravity": {
+   "id": 616,
+   "symbol": "BATTLEPASS2",
+   "classification": "useful"
+  },
+  "Battle Pass- Strike": {
+   "id": 609,
+   "symbol": "BATTLEPASS1",
+   "classification": "useful"
+  },
+  "Battle Pass- Suspension": {
+   "id": 641,
+   "symbol": "BATTLEPASS3",
+   "classification": "useful"
+  },
+  "Beryl Grid Key": {
+   "id": 640,
+   "symbol": "BERYLGRIDKEY",
+   "classification": "progression"
+  },
   "Bicycle": {
    "id": 503,
    "symbol": "BICYCLE",
@@ -61,6 +102,11 @@
   "Big Mushroom": {
    "id": 39,
    "symbol": "BIGMUSHROOM",
+   "classification": "filler"
+  },
+  "Big Nugget": {
+   "id": 48,
+   "symbol": "BIGNUGGET",
    "classification": "filler"
   },
   "Big Pearl": {
@@ -93,6 +139,16 @@
    "symbol": "BLACKSLUDGE",
    "classification": "useful"
   },
+  "Blast Powder": {
+   "id": 598,
+   "symbol": "BLASTPOWDER",
+   "classification": "filler"
+  },
+  "Blastoisinite": {
+   "id": 545,
+   "symbol": "BLASTOISINITE",
+   "classification": "useful"
+  },
   "Blight Badge": {
    "id": 10004,
    "symbol": "BADGE4",
@@ -101,12 +157,14 @@
   "Blue Shard": {
    "id": 10,
    "symbol": "BLUESHARD",
-   "classification": "filler"
+   "classification": "filler",
+   "quantity": 3
   },
   "Brave Mint": {
    "id": 828,
    "symbol": "BRAVEMINT",
-   "classification": "filler"
+   "classification": "filler",
+   "quantity": 5
   },
   "Bug Gem": {
    "id": 179,
@@ -132,7 +190,13 @@
   "Calm Mint": {
    "id": 837,
    "symbol": "CALMMINT",
-   "classification": "filler"
+   "classification": "filler",
+   "quantity": 5
+  },
+  "Cameruptite": {
+   "id": 626,
+   "symbol": "CAMERUPTITE",
+   "classification": "useful"
   },
   "Canopy Badge": {
    "id": 10001,
@@ -147,11 +211,27 @@
   "Careful Mint": {
    "id": 839,
    "symbol": "CAREFULMINT",
+   "classification": "filler",
+   "quantity": 5
+  },
+  "Cell Battery": {
+   "id": 99,
+   "symbol": "CELLBATTERY",
    "classification": "filler"
   },
   "Charcoal": {
    "id": 136,
    "symbol": "CHARCOAL",
+   "classification": "useful"
+  },
+  "Charizardite X": {
+   "id": 547,
+   "symbol": "CHARIZARDITEX",
+   "classification": "useful"
+  },
+  "Charizardite Y": {
+   "id": 548,
+   "symbol": "CHARIZARDITEY",
    "classification": "useful"
   },
   "Cheri Berry": {
@@ -170,6 +250,11 @@
    "id": 530,
    "symbol": "CHEWINGGUM",
    "classification": "filler"
+  },
+  "Cinder Badge": {
+   "id": 10010,
+   "symbol": "BADGE10",
+   "classification": "progression"
   },
   "Clever Wing": {
    "id": 261,
@@ -201,11 +286,21 @@
    "symbol": "COTTONCANDY",
    "classification": "filler"
   },
+  "Cover Fossil": {
+   "id": 35,
+   "symbol": "COVERFOSSIL",
+   "classification": "filler"
+  },
   "Dark Gem": {
    "id": 183,
    "symbol": "DARKGEM",
    "classification": "filler",
    "quantity": 5
+  },
+  "Dark Material": {
+   "id": 607,
+   "symbol": "DARKMATTER",
+   "classification": "filler"
   },
   "Dark Memory": {
    "id": 708,
@@ -227,10 +322,20 @@
    "symbol": "DEEPSEASCALE",
    "classification": "filler"
   },
+  "Deep Sea Tooth": {
+   "id": 193,
+   "symbol": "DEEPSEATOOTH",
+   "classification": "filler"
+  },
   "Dire Hit": {
    "id": 489,
    "symbol": "DIREHIT",
    "classification": "filler"
+  },
+  "Dragon Fang": {
+   "id": 149,
+   "symbol": "DRAGONFANG",
+   "classification": "useful"
   },
   "Dragon Gem": {
    "id": 182,
@@ -241,6 +346,16 @@
   "Dragon Memory": {
    "id": 707,
    "symbol": "DRAGONMEMORY",
+   "classification": "filler"
+  },
+  "Dragon Scale": {
+   "id": 203,
+   "symbol": "DRAGONSCALE",
+   "classification": "filler"
+  },
+  "Dubious Disc": {
+   "id": 205,
+   "symbol": "DUBIOUSDISC",
    "classification": "filler"
   },
   "Dull Key": {
@@ -256,6 +371,11 @@
   "Dusk Stone": {
    "id": 18,
    "symbol": "DUSKSTONE",
+   "classification": "filler"
+  },
+  "EV Booster": {
+   "id": 865,
+   "symbol": "EVBOOSTER",
    "classification": "filler"
   },
   "Eclipse Badge": {
@@ -344,6 +464,11 @@
    "symbol": "FAIRYFEATHER",
    "classification": "useful"
   },
+  "Fairy Memory": {
+   "id": 710,
+   "symbol": "FAIRYMEMORY",
+   "classification": "filler"
+  },
   "Family Picture": {
    "id": 796,
    "symbol": "BELROSEPICTURE",
@@ -355,11 +480,21 @@
    "classification": "filler",
    "quantity": 5
   },
+  "Fighting Memory": {
+   "id": 699,
+   "symbol": "FIGHTINGMEMORY",
+   "classification": "filler"
+  },
   "Fire Gem": {
    "id": 169,
    "symbol": "FIREGEM",
    "classification": "filler",
    "quantity": 5
+  },
+  "Fire Memory": {
+   "id": 694,
+   "symbol": "FIREMEMORY",
+   "classification": "filler"
   },
   "Fire Stone": {
    "id": 12,
@@ -371,11 +506,21 @@
    "symbol": "FLAMEORB",
    "classification": "useful"
   },
+  "Flame Plate": {
+   "id": 153,
+   "symbol": "FLAMEPLATE",
+   "classification": "filler"
+  },
   "Flying Gem": {
    "id": 177,
    "symbol": "FLYINGGEM",
    "classification": "filler",
    "quantity": 5
+  },
+  "Flying Memory": {
+   "id": 702,
+   "symbol": "FLYINGMEMORY",
+   "classification": "filler"
   },
   "Focus Sash": {
    "id": 114,
@@ -413,6 +558,11 @@
    "classification": "filler",
    "quantity": 5
   },
+  "Ghost Memory": {
+   "id": 706,
+   "symbol": "GHOSTMEMORY",
+   "classification": "filler"
+  },
   "Ghostium-Z": {
    "id": 734,
    "symbol": "GHOSTIUMZ",
@@ -434,6 +584,16 @@
    "classification": "filler",
    "quantity": 5
   },
+  "Grass Memory": {
+   "id": 697,
+   "symbol": "GRASSMEMORY",
+   "classification": "filler"
+  },
+  "Gravity Badge": {
+   "id": 10011,
+   "symbol": "BADGE11",
+   "classification": "progression"
+  },
   "Great Ball": {
    "id": 266,
    "symbol": "GREATBALL",
@@ -443,7 +603,8 @@
   "Green Shard": {
    "id": 11,
    "symbol": "GREENSHARD",
-   "classification": "filler"
+   "classification": "filler",
+   "quantity": 3
   },
   "Ground Gem": {
    "id": 176,
@@ -469,7 +630,8 @@
   "Hasty Mint": {
    "id": 842,
    "symbol": "HASTYMINT",
-   "classification": "filler"
+   "classification": "filler",
+   "quantity": 5
   },
   "Health Wing": {
    "id": 257,
@@ -507,6 +669,11 @@
    "symbol": "HYPERPOTION",
    "classification": "filler"
   },
+  "ID Tag": {
+   "id": 665,
+   "symbol": "IDTAG",
+   "classification": "progression"
+  },
   "Ice Gem": {
    "id": 173,
    "symbol": "ICEGEM",
@@ -528,6 +695,11 @@
    "symbol": "ILLFATEDDOLL",
    "classification": "filler"
   },
+  "Iron": {
+   "id": 253,
+   "symbol": "IRON",
+   "classification": "filler"
+  },
   "Iron Ball": {
    "id": 118,
    "symbol": "IRONBALL",
@@ -538,6 +710,12 @@
    "symbol": "ITEMFINDER",
    "classification": "useful"
   },
+  "Jolly Mint": {
+   "id": 843,
+   "symbol": "JOLLYMINT",
+   "classification": "filler",
+   "quantity": 5
+  },
   "Lax Incense": {
    "id": 127,
    "symbol": "LAXINCENSE",
@@ -546,7 +724,8 @@
   "Lax Mint": {
    "id": 831,
    "symbol": "LAXMINT",
-   "classification": "filler"
+   "classification": "filler",
+   "quantity": 5
   },
   "Leaf Stone": {
    "id": 15,
@@ -595,6 +774,11 @@
    "symbol": "MAGICALSEED",
    "classification": "filler"
   },
+  "Magmarizer": {
+   "id": 208,
+   "symbol": "MAGMARIZER",
+   "classification": "filler"
+  },
   "Magnet": {
    "id": 138,
    "symbol": "MAGNET",
@@ -604,6 +788,16 @@
    "id": 592,
    "symbol": "MAGNETPOWDER",
    "classification": "useful"
+  },
+  "Max Elixir": {
+   "id": 248,
+   "symbol": "MAXELIXIR",
+   "classification": "filler"
+  },
+  "Max Potion": {
+   "id": 220,
+   "symbol": "MAXPOTION",
+   "classification": "filler"
   },
   "Max Repel": {
    "id": 3,
@@ -643,7 +837,8 @@
   "Mild Mint": {
    "id": 834,
    "symbol": "MILDMINT",
-   "classification": "filler"
+   "classification": "filler",
+   "quantity": 5
   },
   "Millennium Badge": {
    "id": 10007,
@@ -653,7 +848,7 @@
   "Mining Kit": {
    "id": 517,
    "symbol": "MININGKIT",
-   "classification": "progression_skip_balancing"
+   "classification": "progression"
   },
   "Miracle Seed": {
    "id": 139,
@@ -664,6 +859,12 @@
    "id": 1003,
    "symbol": "MIRRORLURE",
    "classification": "filler"
+  },
+  "Modest Mint": {
+   "id": 833,
+   "symbol": "MODESTMINT",
+   "classification": "filler",
+   "quantity": 5
   },
   "Moomoo Milk": {
    "id": 240,
@@ -711,6 +912,11 @@
    "symbol": "ODDISHWEED",
    "classification": "useful"
   },
+  "Old Amber": {
+   "id": 30,
+   "symbol": "OLDAMBER",
+   "classification": "filler"
+  },
   "Old Rod": {
    "id": 504,
    "symbol": "OLDROD",
@@ -742,6 +948,11 @@
    "symbol": "PARLYZHEAL",
    "classification": "filler"
   },
+  "Pearl": {
+   "id": 41,
+   "symbol": "PEARL",
+   "classification": "filler"
+  },
   "Pecha Berry": {
    "id": 391,
    "symbol": "PECHABERRY",
@@ -751,7 +962,8 @@
   "Peppermint": {
    "id": 528,
    "symbol": "PEPPERMINT",
-   "classification": "filler"
+   "classification": "filler",
+   "quantity": 5
   },
   "Petaya Berry": {
    "id": 444,
@@ -801,6 +1013,11 @@
    "symbol": "POTION",
    "classification": "filler"
   },
+  "Powder Vial": {
+   "id": 608,
+   "symbol": "POWDERVIAL",
+   "classification": "progression"
+  },
   "Premier Ball": {
    "id": 276,
    "symbol": "PREMIERBALL",
@@ -809,6 +1026,11 @@
   "Pretty Wing": {
    "id": 37,
    "symbol": "PRETTYWING",
+   "classification": "filler"
+  },
+  "Prism Scale": {
+   "id": 210,
+   "symbol": "PRISMSCALE",
    "classification": "filler"
   },
   "Progressive Crystal Key": {
@@ -850,7 +1072,8 @@
   "Purple Shard": {
    "id": 9,
    "symbol": "PURPLESHARD",
-   "classification": "filler"
+   "classification": "filler",
+   "quantity": 3
   },
   "Quick Ball": {
    "id": 279,
@@ -865,7 +1088,8 @@
   "Quiet Mint": {
    "id": 836,
    "symbol": "QUIETMINT",
-   "classification": "filler"
+   "classification": "filler",
+   "quantity": 5
   },
   "Rainbow Scent": {
    "id": 1002,
@@ -888,19 +1112,45 @@
    "symbol": "RAZORCLAW",
    "classification": "filler"
   },
+  "Razor Fang": {
+   "id": 110,
+   "symbol": "RAZORFANG",
+   "classification": "filler"
+  },
+  "Reaper Cloth": {
+   "id": 209,
+   "symbol": "REAPERCLOTH",
+   "classification": "filler"
+  },
   "Reborn Ball": {
    "id": 264,
    "symbol": "MASTERBALL",
    "classification": "useful"
   },
+  "Red Card": {
+   "id": 73,
+   "symbol": "REDCARD",
+   "classification": "filler"
+  },
+  "Red Flute": {
+   "id": 499,
+   "symbol": "REDFLUTE",
+   "classification": "filler"
+  },
   "Red Shard": {
    "id": 8,
    "symbol": "REDSHARD",
-   "classification": "filler"
+   "classification": "filler",
+   "quantity": 3
   },
   "Red-Hots": {
    "id": 531,
    "symbol": "REDHOTS",
+   "classification": "filler"
+  },
+  "Repeat Ball": {
+   "id": 273,
+   "symbol": "REPEATBALL",
    "classification": "filler"
   },
   "Repel": {
@@ -955,6 +1205,11 @@
    "symbol": "SALTWATERTAFFY",
    "classification": "filler"
   },
+  "Scope Lens": {
+   "id": 106,
+   "symbol": "SCOPELENS",
+   "classification": "filler"
+  },
   "Sea Incense": {
    "id": 131,
    "symbol": "SEAINCENSE",
@@ -963,12 +1218,28 @@
   "Serious Mint": {
    "id": 845,
    "symbol": "SERIOUSMINT",
-   "classification": "filler"
+   "classification": "filler",
+   "quantity": 5
   },
   "Sharp Beak": {
    "id": 144,
    "symbol": "SHARPBEAK",
    "classification": "useful"
+  },
+  "Sharpedonite": {
+   "id": 619,
+   "symbol": "SHARPEDONITE",
+   "classification": "useful"
+  },
+  "Shell Bell": {
+   "id": 94,
+   "symbol": "SHELLBELL",
+   "classification": "useful"
+  },
+  "Shiny Charm": {
+   "id": 590,
+   "symbol": "SHINYCHARM",
+   "classification": "filler"
   },
   "Shiny Stone": {
    "id": 20,
@@ -990,6 +1261,11 @@
    "symbol": "SILKSCARF",
    "classification": "useful"
   },
+  "Silver Card": {
+   "id": 613,
+   "symbol": "SILVERCARD",
+   "classification": "progression"
+  },
   "Silver Powder": {
    "id": 146,
    "symbol": "SILVERPOWDER",
@@ -998,7 +1274,17 @@
   "Silver Ring": {
    "id": 596,
    "symbol": "SILVERRING",
+   "classification": "progression"
+  },
+  "Smoke Ball": {
+   "id": 75,
+   "symbol": "SMOKEBALL",
    "classification": "filler"
+  },
+  "Snorlium-Z": {
+   "id": 766,
+   "symbol": "SNORLIUMZ",
+   "classification": "useful"
   },
   "Soft Sand": {
    "id": 143,
@@ -1018,6 +1304,11 @@
   "Spell Tag": {
    "id": 148,
    "symbol": "SPELLTAG",
+   "classification": "useful"
+  },
+  "Spooky Plate": {
+   "id": 165,
+   "symbol": "SPOOKYPLATE",
    "classification": "useful"
   },
   "Standard Badge": {
@@ -1046,6 +1337,11 @@
    "symbol": "STICKYBARB",
    "classification": "filler"
   },
+  "Strike Badge": {
+   "id": 10009,
+   "symbol": "BADGE9",
+   "classification": "progression"
+  },
   "Sun Stone": {
    "id": 17,
    "symbol": "SUNSTONE",
@@ -1061,6 +1357,16 @@
    "symbol": "SUPERREPEL",
    "classification": "filler"
   },
+  "Super Rod": {
+   "id": 506,
+   "symbol": "SUPERROD",
+   "classification": "useful"
+  },
+  "Suspension Badge": {
+   "id": 10012,
+   "symbol": "BADGE12",
+   "classification": "progression"
+  },
   "Swift Wing": {
    "id": 262,
    "symbol": "SWIFTWING",
@@ -1071,9 +1377,24 @@
    "symbol": "SYNTHETICSEED",
    "classification": "filler"
   },
+  "TM01 Work Up": {
+   "id": 288,
+   "symbol": "TM01",
+   "classification": "useful"
+  },
+  "TM03 Psyshock": {
+   "id": 290,
+   "symbol": "TM03",
+   "classification": "useful"
+  },
   "TM05 Roar": {
    "id": 292,
    "symbol": "TM05",
+   "classification": "useful"
+  },
+  "TM06 Toxic": {
+   "id": 293,
+   "symbol": "TM06",
    "classification": "useful"
   },
   "TM07 Hail": {
@@ -1126,6 +1447,11 @@
    "symbol": "TM23",
    "classification": "useful"
   },
+  "TM31 Brick Break": {
+   "id": 318,
+   "symbol": "TM31",
+   "classification": "useful"
+  },
   "TM32 Double Team": {
    "id": 319,
    "symbol": "TM32",
@@ -1136,9 +1462,19 @@
    "symbol": "TM34",
    "classification": "useful"
   },
+  "TM35 Flamethrower": {
+   "id": 322,
+   "symbol": "TM35",
+   "classification": "useful"
+  },
   "TM37 Sandstorm": {
    "id": 324,
    "symbol": "TM37",
+   "classification": "useful"
+  },
+  "TM39 Rock Tomb": {
+   "id": 326,
+   "symbol": "TM39",
    "classification": "useful"
   },
   "TM40 Aerial Ace": {
@@ -1151,6 +1487,11 @@
    "symbol": "TM41",
    "classification": "useful"
   },
+  "TM43 Flame Charge": {
+   "id": 330,
+   "symbol": "TM43",
+   "classification": "useful"
+  },
   "TM44 Rest": {
    "id": 331,
    "symbol": "TM44",
@@ -1161,14 +1502,29 @@
    "symbol": "TM46",
    "classification": "useful"
   },
+  "TM47 Low Sweep": {
+   "id": 334,
+   "symbol": "TM47",
+   "classification": "useful"
+  },
   "TM49 Echoed Voice": {
    "id": 336,
    "symbol": "TM49",
    "classification": "useful"
   },
+  "TM50 Overheat": {
+   "id": 337,
+   "symbol": "TM50",
+   "classification": "useful"
+  },
   "TM51 Steel Wing": {
    "id": 338,
    "symbol": "TM51",
+   "classification": "useful"
+  },
+  "TM53 Energy Ball": {
+   "id": 340,
+   "symbol": "TM53",
    "classification": "useful"
   },
   "TM54 False Swipe": {
@@ -1186,9 +1542,24 @@
    "symbol": "TM57",
    "classification": "useful"
   },
+  "TM58 Sky Drop": {
+   "id": 345,
+   "symbol": "TM58",
+   "classification": "useful"
+  },
   "TM60 Quash": {
    "id": 347,
    "symbol": "TM60",
+   "classification": "useful"
+  },
+  "TM61 Will-O-Wisp": {
+   "id": 348,
+   "symbol": "TM61",
+   "classification": "useful"
+  },
+  "TM62 Acrobatics": {
+   "id": 349,
+   "symbol": "TM62",
    "classification": "useful"
   },
   "TM63 Embargo": {
@@ -1206,6 +1577,11 @@
    "symbol": "TM66",
    "classification": "useful"
   },
+  "TM67 Smart Strike": {
+   "id": 354,
+   "symbol": "TM67",
+   "classification": "useful"
+  },
   "TM69 Rock Polish": {
    "id": 356,
    "symbol": "TM69",
@@ -1216,6 +1592,11 @@
    "symbol": "TM702",
    "classification": "useful"
   },
+  "TM74 Gyro Ball": {
+   "id": 361,
+   "symbol": "TM74",
+   "classification": "useful"
+  },
   "TM76 Struggle Bug": {
    "id": 363,
    "symbol": "TM76",
@@ -1224,6 +1605,21 @@
   "TM77 Psych Up": {
    "id": 364,
    "symbol": "TM77",
+   "classification": "useful"
+  },
+  "TM78 Bulldoze": {
+   "id": 365,
+   "symbol": "TM78",
+   "classification": "useful"
+  },
+  "TM79 Frost Breath": {
+   "id": 366,
+   "symbol": "TM79",
+   "classification": "useful"
+  },
+  "TM82 Dragon Tail": {
+   "id": 369,
+   "symbol": "TM82",
    "classification": "useful"
   },
   "TM83 Infestation": {
@@ -1246,14 +1642,29 @@
    "symbol": "TM88",
    "classification": "useful"
   },
+  "TM89 U-turn": {
+   "id": 376,
+   "symbol": "TM89",
+   "classification": "useful"
+  },
   "TM92 Trick Room": {
    "id": 379,
    "symbol": "TM92",
    "classification": "useful"
   },
+  "TM93 Wild Charge": {
+   "id": 380,
+   "symbol": "TM93",
+   "classification": "useful"
+  },
   "TM94 Secret Power": {
    "id": 639,
    "symbol": "TM942",
+   "classification": "useful"
+  },
+  "TM95 Snarl": {
+   "id": 382,
+   "symbol": "TM95",
    "classification": "useful"
   },
   "TM96 Nature Power": {
@@ -1271,9 +1682,29 @@
    "symbol": "HM01",
    "classification": "progression"
   },
+  "TMX2 Fly": {
+   "id": 384,
+   "symbol": "HM02",
+   "classification": "useful"
+  },
+  "TMX3 Surf": {
+   "id": 385,
+   "symbol": "HM03",
+   "classification": "progression"
+  },
   "TMX4 Strength": {
    "id": 386,
    "symbol": "HM04",
+   "classification": "progression"
+  },
+  "TMX5 Waterfall": {
+   "id": 387,
+   "symbol": "HM05",
+   "classification": "progression"
+  },
+  "TMX6 Dive": {
+   "id": 388,
+   "symbol": "HM06",
    "classification": "progression"
   },
   "TMX7 Rock Smash": {
@@ -1310,6 +1741,12 @@
    "id": 274,
    "symbol": "TIMERBALL",
    "classification": "filler"
+  },
+  "Timid Mint": {
+   "id": 841,
+   "symbol": "TIMIDMINT",
+   "classification": "filler",
+   "quantity": 5
   },
   "Tiny Mushroom": {
    "id": 38,
@@ -1361,6 +1798,11 @@
    "symbol": "WATERGEM",
    "classification": "filler",
    "quantity": 5
+  },
+  "Water Memory": {
+   "id": 695,
+   "symbol": "WATERMEMORY",
+   "classification": "filler"
   },
   "Water Stone": {
    "id": 14,

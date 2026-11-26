@@ -21,7 +21,7 @@ If you chose to not shuffle badges, the game works the same as vanilla.
 
 ## At what point exactly am I able to progress once I have the badge?
 
-Gym leaders can be split into 2 categories. First are those where all story flags are on **before** entering their gym or section, like Julia or Shelly. Those leaders are easier to handle because there's less things to consider. Therefore, as soon as you've completed all story events prior to their gym or section, you're able to move on with the story.
+Gym leaders can be split into 2 categories. First are those where all story flags are on **before** entering their gym or section, like Julia or Shelly. Those leaders are easier to handle because there are less things to consider. Therefore, as soon as you've completed all story events prior to their gym or section, you're able to move on with the story.
 
 The second category are leaders where at least one story flag is turned on in a section that is made for this leader. What I mean by **section** are mainly gyms, but also cities or entire parts of the map that you visit mainly (if not only) for this gym leader.
 

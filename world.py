@@ -8,11 +8,11 @@ from worlds.AutoWorld import WebWorld, World
 from .data import ROADBLOCKS
 from .items import FILLER_ITEMS, ITEM_NAME_TO_ID, ITEMS, RebornItem
 from .locations import EVENTS, LOCATION_NAME_TO_ID, LOCATIONS, LocationData, RebornLocation
-from .options import Badges, EasyHMs, ExpMultiplier, FreeRainbow, HardLevelCap, Pinata, RebornOptions, Starter, \
-    StoryGates, StoryMode
+from .options import Badges, EasyHMs, ExpMultiplier, FreeRainbow, Goal, HardLevelCap, Pinata, RebornOptions, \
+    Starter, StoryGates, StoryMode
 from .rules import compile_rule
 
-GOAL_EVENT = ROADBLOCKS["goal"]
+GOAL_EVENTS: dict[str, str] = ROADBLOCKS["goal"]  # Goal option key -> event
 
 
 class RebornWebWorld(WebWorld):
@@ -27,7 +27,7 @@ class RebornWebWorld(WebWorld):
     )
     tutorials = [setup_en]
     option_groups = [
-        OptionGroup("Logic Options", [Badges, StoryGates]),
+        OptionGroup("Logic Options", [Goal, Badges, StoryGates]),
         OptionGroup("QoL Options", [EasyHMs, ExpMultiplier, HardLevelCap, Pinata, Starter, FreeRainbow, StoryMode]),
     ]
 
@@ -74,7 +74,8 @@ class RebornWorld(World):
         for name, (region_name, rule) in EVENTS.items():
             regions[region_name].add_event(name, None, compile_rule(rule, self.player, options), RebornLocation,
                                            RebornItem)
-        self.multiworld.completion_condition[self.player] = lambda state: state.has(GOAL_EVENT, self.player)
+        goal = GOAL_EVENTS[self.options.goal.current_key]
+        self.multiworld.completion_condition[self.player] = lambda state: state.has(goal, self.player)
 
     def vanilla_badge(self, kind: str) -> bool:
         return kind == "badge" and self.options.badges == Badges.option_vanilla
@@ -109,4 +110,4 @@ class RebornWorld(World):
         }
 
     def fill_slot_data(self) -> Mapping[str, Any]:
-        return {**self.options.as_dict("badges", "story_gates", "starter"), "passwords": self.passwords()}
+        return {**self.options.as_dict("goal", "badges", "story_gates", "starter"), "passwords": self.passwords()}

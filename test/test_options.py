@@ -49,3 +49,26 @@ class TestPasswords(RebornTestBase):
     def test_everstone_with_password_starter(self) -> None:
         self.assertIn(EVERSTONE, self.location_names())
         self.assert_pool_fills_locations()
+
+
+SUSPENSION = "Big Top - Suspension Badge from Ciel"
+
+
+class TestGoalLuna(RebornTestBase):
+    options = {"goal": "defeat_luna"}
+
+    # the checks after Luna stay in the logic (user's choice 2026-11-24); Surf is only needed after Samson
+    def test_checks_after_luna_kept(self) -> None:
+        self.assertIn(SUSPENSION, self.location_names())
+        self.collect_all_but(["TMX3 Surf", "Defeat Luna", "Defeat Ciel"])  # events: from the logic only
+        self.assertBeatable(True)
+
+
+class TestGoalCiel(RebornTestBase):
+    options = {"goal": "defeat_ciel"}
+
+    def test_needs_ciel(self) -> None:
+        self.collect_all_but(["TMX5 Waterfall", "Defeat Terra", "Defeat Ciel"])  # events: from the logic only
+        self.assertBeatable(False)
+        self.collect_by_name(["TMX5 Waterfall"])
+        self.assertBeatable(True)

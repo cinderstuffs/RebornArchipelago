@@ -28,7 +28,8 @@ module RebornAP
   RETRY_SECONDS = 3
   LOG_FILE = "RebornAP.log"
   BADGE_NAMES = ["Volt Badge", "Canopy Badge", "Cocoon Badge", "Omen Badge", "Blight Badge", "Rime Badge",
-                 "Standard Badge", "Millennium Badge", "Eclipse Badge"]
+                 "Standard Badge", "Millennium Badge", "Eclipse Badge", "Strike Badge", "Cinder Badge", "Gravity Badge",
+                 "Suspension Badge"]
   # Leaders for story_gates badge / both, by badge index:
   # - event: [map, event] of the fight; switch: the story switch it sets after the fight
   # - point: when the gym opens in the story (from there the badge item opens the story, story_gates badge)

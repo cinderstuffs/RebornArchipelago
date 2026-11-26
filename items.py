@@ -1,3 +1,5 @@
+import functools
+import operator
 from typing import NamedTuple
 
 from BaseClasses import Item, ItemClassification
@@ -16,8 +18,13 @@ class ItemData(NamedTuple):
     quantity: int
 
 
+def classification(text: str) -> ItemClassification:
+    """"progression|useful": flags joined by |"""
+    return functools.reduce(operator.or_, (ItemClassification[flag] for flag in text.split("|")))
+
+
 ITEMS: dict[str, ItemData] = {
-    name: ItemData(data["id"], data["symbol"], ItemClassification[data["classification"]], data.get("quantity", 1))
+    name: ItemData(data["id"], data["symbol"], classification(data["classification"]), data.get("quantity", 1))
     for name, data in ITEM_TABLE.items()
 }
 BADGES = [name for name, data in ITEMS.items() if data.symbol.startswith("BADGE")]

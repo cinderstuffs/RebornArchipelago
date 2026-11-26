@@ -4,6 +4,22 @@ from Options import Choice, PerGameCommonOptions, Range, Toggle
 
 # Logic options
 
+class Goal(Choice):
+    """
+    The Gym Leader to beat to win. Every check of the world stays in the logic whatever the goal.
+
+    Note that there's no way for the game to tell AP you've reached your goal yet.
+
+    defeat_luna: Luna, 9th badge (Eclipse Badge).
+    defeat_ciel: Ciel, 13th badge (Suspension Badge).
+    """
+
+    display_name = "Goal"
+    option_defeat_luna = 0
+    option_defeat_ciel = 1
+    default = 0
+
+
 class Badges(Choice):
     """
     vanilla: each Gym Leader gives their own badge.
@@ -112,6 +128,7 @@ class StoryMode(Toggle):
 
 @dataclass
 class RebornOptions(PerGameCommonOptions):
+    goal: Goal
     badges: Badges
     story_gates: StoryGates
     easy_hms: EasyHMs
