@@ -19,6 +19,7 @@ class PokemonGlobalMetadata # saved with the game
   attr_accessor :ap_gym_story      # badge index => the gym's own story value (gym_view)
   attr_accessor :ap_railnet_return # [map, x, y, direction] to go back to after the Railnet cutscene
   attr_accessor :ap_railnet_notice # RAILNET_NOTICE still to show
+  attr_accessor :ap_magician_met
 end
 
 module RebornAP
@@ -160,6 +161,30 @@ module RebornAP
   # there at each map load. Once beaten, he moves to `spot` and stays there
   HYDE = { event: [325, 4], spot: [29, 12], end_script: "pbTrainerEnd",
            text: "Aight, aight, I'm movin'... Don't harsh my vibe, buddy." }
+  # Agate Circus: the police (map 365 ev8/9) keep the player in until E18 Story 51; map 298 ev8 leads back in
+  MAGICIAN = { map: 355, x: 40, y: 25, direction: 2, sprite: "trchar028", name: "AP Magician", gone: [391, 51],
+               sound: "PRSFX- Teleport" }
+  MAGICIAN_POKEMON = { x: 41, y: 25, direction: 2, sprite: "pkmn_alakazam", name: "AP Magician Alakazam",
+                       step_anime: true, cry: "065Cry" }
+  # the clown trainer Bert
+  MAGICIAN_CLOWN = { event: 44, x: 41, y: 26, direction: 4 }
+  # common event "Center Clear": removes the partners (Aya)
+  CENTER_CLEAR = 10
+  MAGICIAN_TEXTS = {
+    intro: ["Ah, a spectator! You're looking at the star of the Big Top's Great Disappearing Act.",
+            "Not that there's been much of a show since the police sealed the checkpoint. Nobody gets out of here " \
+            "these days.",
+            "Nobody but me, that is. My Alakazam can Teleport you to any place you've visited before.",
+            "As for coming back... While the city sleeps, the officers at the checkpoint send every traveler to the " \
+            "circus. Sooner or later, everyone ends up here."],
+    ask_first: "So, shall I make you disappear?",
+    ask_again: "Back for another disappearing act?",
+    cancel: "Suit yourself. I'll be right here, waiting for my next volunteer.",
+    go: "Alakazam, Teleport!",
+    tauros: "Your Pokémon won't fit in my hat, I'm afraid. Get off it first, will you?",
+    partner: "Alakazam can only send one person at a time. Come back alone!",
+    pokemon: "ALAKAZAM: Kazaaam!",
+  }
 
   @socket = nil
   @buffer = String.new
@@ -735,9 +760,10 @@ module RebornAP
     transfer_player(RAILNET_SCENE[0], *RAILNET_SPOT, 8)
   end
 
-  # Moves the player as Fly does (fade out, transfer, fade in)
+  # Moves the player as Fly does (fade out, transfer, fade in); the block runs once the screen is dark
   def self.transfer_player(map_id, x, y, direction)
     pbFadeOutIn(99999) do
+      yield if block_given?
       $game_temp.player_new_map_id = map_id
       $game_temp.player_new_x = x
       $game_temp.player_new_y = y
@@ -919,6 +945,81 @@ module RebornAP
   # The map's interpreter starts an event: CHECK_TEXTS only follow a check of the same run
   def self.event_setup
     @check_event = nil
+  end
+
+  # --- Agate Circus magician (MAGICIAN) ---
+
+  # the engine caches the map data: the events are added once
+  def self.map_loaded(map_id, map)
+    return if map_id != MAGICIAN[:map] || map.events.values.any? { |e| e.name == MAGICIAN[:name] }
+
+    clown = map.events[MAGICIAN_CLOWN[:event]]
+    clown.x, clown.y = MAGICIAN_CLOWN[:x], MAGICIAN_CLOWN[:y]
+    clown.pages.each { |page| page.graphic.direction = MAGICIAN_CLOWN[:direction] }
+    ids = [[MAGICIAN, "RebornAP.magician"], [MAGICIAN_POKEMON, "RebornAP.magician_pokemon"]].map do |spec, script|
+      add_magician_event(map, spec, script)
+    end
+    log("magician added to map #{map_id} (events #{ids.join(', ')})")
+  end
+
+  def self.add_magician_event(map, spec, script)
+    event = RPG::Event.new(spec[:x], spec[:y])
+    event.id = map.events.keys.max + 1
+    event.name = spec[:name]
+    shown = event.pages[0]
+    shown.graphic.character_name = spec[:sprite]
+    shown.graphic.direction = spec[:direction]
+    shown.step_anime = spec.fetch(:step_anime, false)
+    shown.list = [RPG::EventCommand.new(355, 0, [script]), RPG::EventCommand.new]
+    gone = RPG::Event::Page.new
+    gone.condition.variable_valid = true
+    gone.condition.variable_id, gone.condition.variable_value = MAGICIAN[:gone]
+    event.pages << gone
+    map.events[event.id] = event
+    event.id
+  end
+
+  def self.magician_pokemon
+    pbSEPlay(MAGICIAN_POKEMON[:cry])
+    Kernel.pbMessage(_INTL(MAGICIAN_TEXTS[:pokemon]))
+  end
+
+  def self.magician
+    texts = MAGICIAN_TEXTS
+    return Kernel.pbMessage(_INTL(texts[:tauros])) if $game_switches[:Riding_Tauros]
+
+    ask = texts[:ask_again]
+    unless $PokemonGlobal.ap_magician_met
+      texts[:intro].each { |text| Kernel.pbMessage(_INTL(text)) }
+      $PokemonGlobal.ap_magician_met = true
+      ask = texts[:ask_first]
+    end
+    spot = Kernel.pbConfirmMessage(_INTL(ask)) && fly_destination
+    return Kernel.pbMessage(_INTL(texts[:cancel])) unless spot
+
+    pbCommonEvent(CENTER_CLEAR)
+    return Kernel.pbMessage(_INTL(texts[:partner])) if $game_player.pbHasDependentEvents?
+
+    Kernel.pbMessage(_INTL(texts[:go]))
+    pbSEPlay(MAGICIAN[:sound])
+    log("magician: to #{spot.inspect}")
+    transfer_player(spot[0], spot[1], spot[2], 2) do
+      Kernel.pbCancelVehicles
+      $game_player.direction_fix = false
+      $game_variables[:Forced_Field_Effect] = 0
+    end
+    pbEraseEscapePoint
+  end
+
+  # [map, x, y], nil if cancelled
+  def self.fly_destination
+    return Blindstep.flyMenu if $game_switches[:Blindstep]
+
+    spot = nil
+    pbFadeOutIn(99999) do
+      spot = PokemonRegionMap.new(PokemonRegionMapScene.new(pbGetCurrentRegion, false)).pbStartFlyScreen
+    end
+    spot
   end
 
   # --- items ---
@@ -1176,6 +1277,16 @@ class Game_Event
     RebornAP.gym_view(@map_id, @event.id) { __ap_refresh }
   ensure
     @event.pages = pages if pages
+  end
+end
+
+class Cache_Game
+  alias_method :__ap_map_load, :map_load unless method_defined?(:__ap_map_load)
+
+  def map_load(mapid)
+    map = __ap_map_load(mapid)
+    RebornAP.map_loaded(mapid, map)
+    map
   end
 end
 
